@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+-- Déclaration de l'entité
+entity XORCipher is
+    Port ( 
+        plaintext : in STD_LOGIC_VECTOR(7 downto 0);  -- Texte en clair
+        key : in STD_LOGIC_VECTOR(7 downto 0);        -- Clé de chiffrement
+        ciphertext : out STD_LOGIC_VECTOR(7 downto 0) -- Texte chiffré
+    );
+end XORCipher;
+
+-- Architecture de l'entité
+architecture A_XORCipher of XORCipher is
+begin
+    process(plaintext, key)
+    begin
+-- Chiffrement XOR
+        ciphertext <= plaintext XOR key;
+    end process;
+end A_XORCipher;
